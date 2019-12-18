@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Finger History Jump</title>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+  </head>
+  <body class="dark">
+    <div class="panel">
+      <header class="panel-section panel-section-header">
+        <div class="text-section-header">Two-Finger History Jump</div>
+      </header>
+
+      <div class="info">
+        <p>
+          <strong class="icon">&#x1f6c8;</strong>
+          This add-on allows you to go back/forward in the navigation history by swiping
+          horizontally on your touchpad with two fingers. Swiping to the left will take
+          you back one page, while swiping to the right will do the opposite.
+        </p>
+        <p>
+          You can configure how the browser reacts to your gestures with two settings:
+        </p>
+        <ul>
+          <li>
+            <strong>sensibility</strong>: this indicates how sensible your browser is to
+            horizontal swipes. If you set this value too low, you have to swipe more to 
+            trigger a jump in history. If you set this value too high, you might jump back
+            and forward unintentionally, or jump for more than one page. A suggested value
+            is from 15 to 20.
+          </li>
+          <li>
+            <strong>timeout</strong>: your swipe should happen within a specific time range
+            in order to trigger a history jump. This value represents that time range. If 
+            you swipe too slow the jump won't be triggered. If you set this value too low, 
+            you will have a hard time jumping. A suggested value is 1000 milliseconds.
+          </li>
+        </ul>
+      </div>
+
+      <main>
+        <div class="panel-section panel-section-formElements">
+          <div class="panel-formElements-item">
+            <label for="threshold">Sensibility:</label>
+            <span id="threshold-badge" class="badge">ERR</span>
+          </div>
+          <div class="panel-formElements-item">
+            <input type="range" value="-1" min="1" max="30" name="threshold" id="threshold" />
+          </div>
+          <div class="panel-formElements-item">
+            <label for"timeout">Timeout:</label>
+            <span id="timeout-badge" class="badge">ERR</span>
+          </div>
+          <div class="panel-formElements-item">
+            <input type="range" value="-1" min="100" max="5000" name="timeout" id="timeout" />
+          </div>
+        </div>
+      </main>
+
+      <footer class="panel-section panel-section-footer">
+        <button class="panel-section-footer-button" id="reset-btn">Reset</button>
+        <div class="panel-section-footer-separator"></div>
+        <button class="panel-section-footer-button default" id="save-btn">Save</button>
+      </footer>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

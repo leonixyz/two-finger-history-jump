@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Two-Finger History Jump",
+  "version": "1.0.0",
+  "description": "This add-on allows you to jump back/forward in the browser's history by swiping horizontally with two fingers on your touchpad. It mimics the default behaviour on Mac Os. It needs the 'Access your data for all websites' permission in order to access the browser's local storage and be able to save its settings persistently.",
+
+  "icons": {
+    "48": "icon-dark.svg"
+  },
+  
+  "permissions": ["storage"],
+
+  "browser_action" : {
+    "default_popup": "popup.html",
+    "default_title": "Two-Finger History Jump",
+    "browser_style": true,
+    "default_icon": {
+      "16": "icon-dark.svg",
+      "32": "icon-dark.svg"
+    },
+    "theme_icons": [
+      {
+        "light": "icon-light.svg",
+        "dark": "icon-dark.svg",
+        "size": 16
+      },
+      {
+        "light": "icon-light.svg",
+        "dark": "icon-dark.svg",
+        "size": 32
+      }
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["index.js"]
+    }
+  ],
+
+  "options_ui": {
+    "page": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["bg.js"]
+  }
+
+}
