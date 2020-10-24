@@ -6,7 +6,9 @@
   // defaults
   const defaultSettings = {
     threshold: 20,
-    timeout: 1000
+    timeout: 1000,
+    feedbackSize: 5,
+    feedbackColor: '#888888'
   }
 
   // get stored settings or default ones

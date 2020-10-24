@@ -35,6 +35,10 @@
     document.querySelector('#timeout-badge').innerText = `${settings.timeout} ms`;
     document.querySelector('#threshold').value = settings.threshold;
     document.querySelector('#threshold-badge').innerText = settings.threshold;
+    document.querySelector('#feedback-size').value = settings.feedbackSize;
+    document.querySelector('#feedback-size-badge').innerText = `${settings.feedbackSize} pixels`;
+    // document.querySelector('#feedback-color').value = settings.feedbackColor;
+    // document.querySelector('#feedback-color-badge').innerText = settings.feedbackColor;
   };
 
   // saves the current settings and updates the UI
@@ -60,6 +64,16 @@
     settings.timeout = parseInt(e.target.value);
     handleSettingsUpdate();
   });
+
+  document.querySelector('#feedback-size').addEventListener('change', e => {
+    settings.feedbackSize = parseInt(e.target.value);
+    handleSettingsUpdate();
+  });
+
+  // document.querySelector('#feedback-color').addEventListener('change', e => {
+  //   settings.feedbackColor = e.target.value;
+  //   handleSettingsUpdate();
+  // });
 
   document.querySelector('#save-btn').addEventListener('click', async e => {
     settings = saveSettings(settings).then(s => window.close());
