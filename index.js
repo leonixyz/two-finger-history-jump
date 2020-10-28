@@ -56,6 +56,8 @@
     if (Math.abs(counter) >= (50 - settings.threshold)) {
       // move the feedback div out of the way
       feedback.style.display = 'none';
+      setTimeout(() => feedback.style.display = 'initial', settings.timeout + 400);
+
       // navigate back/forward in history
       if (counter > 0) { 
         setTimeout(window.history.forward(), 200);
