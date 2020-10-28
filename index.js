@@ -23,8 +23,8 @@
   feedback.style.left = '0';
   feedback.style.opacity = '0';
   feedback.style.width = '100%';
-  feedback.style.height = `${settings.feedbackSize}px`;
-  feedback.style.backgroundColor = settings.feedbackColor;
+  feedback.style.height = `${settings.feedbackSize || 5}px`;
+  feedback.style.backgroundColor = settings.feedbackColor || '#888888';
   feedback.style.transition = 'left 0.1s linear, opacity 0.5s';
   feedback.style.zIndex = 2147483647;
   feedback.innerHTML = '&nbsp;';
