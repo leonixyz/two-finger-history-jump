@@ -20,21 +20,27 @@
           you back one page, while swiping to the right will do the opposite.
         </p>
         <p>
-          You can configure how the browser reacts to your gestures with two settings:
+          You can configure how the browser reacts to your gestures with three settings:
         </p>
         <ul>
           <li>
-            <strong>sensibility</strong>: this indicates how sensible your browser is to
+            <strong>Senitivity</strong>: This indicates how sensitive your browser is to
             horizontal swipes. If you set this value too low, you have to swipe more to 
             trigger a jump in history. If you set this value too high, you might jump back
-            and forward unintentionally, or jump for more than one page. A suggested value
-            is from 15 to 20.
+            and forward unintentionally. 10 is the default and suggested values range from
+            10 to 50.
           </li>
           <li>
-            <strong>timeout</strong>: your swipe should happen within a specific time range
-            in order to trigger a history jump. This value represents that time range. If 
-            you swipe too slow the jump won't be triggered. If you set this value too low, 
-            you will have a hard time jumping. A suggested value is 1000 milliseconds.
+            <strong>Timeout</strong>: The amount of time that the browser will wait before
+            jumping back or forward. If you set this value too low, it will be more
+            difficult to cancel accidental jumps. If you set this value too high, you might
+            have to wait a long time before you can jump back or forward. 250 is the default
+            and suggested value.
+          </li>
+          <li>
+            <strong>Deadzone</strong>: The amount of pixels that will be ignored when
+            swiping. If you set this value too low you are more likely to trigger the
+            animation by accident when scrolling.
           </li>
         </ul>
       </div>
@@ -46,21 +52,21 @@
             <span id="threshold-badge" class="badge">ERR</span>
           </div>
           <div class="panel-formElements-item">
-            <input type="range" value="-1" min="1" max="50" name="threshold" id="threshold" />
+            <input type="range" value="-1" min="5" max="100" name="threshold" id="threshold" />
           </div>
           <div class="panel-formElements-item">
-            <label for"timeout">Timeout:</label>
+            <label for="timeout">Timeout:</label>
             <span id="timeout-badge" class="badge">ERR</span>
           </div>
           <div class="panel-formElements-item">
-            <input type="range" value="-1" min="100" max="5000" name="timeout" id="timeout" />
+            <input type="range" value="-1" min="50" max="1000" name="timeout" id="timeout" />
           </div>
           <div class="panel-formElements-item">
-            <label for"feedback-size">Feedback bar size:</label>
-            <span id="feedback-size-badge" class="badge">ERR</span>
+            <label for="deadzone">Deadzone:</label>
+            <span id="deadzone-badge" class="badge">ERR</span>
           </div>
           <div class="panel-formElements-item">
-            <input type="range" value="-1" min="0" max="20" name="feedback-size" id="feedback-size" />
+            <input type="range" value="-1" min="0" max="50" name="deadzone" id="deadzone" />
           </div>
           <!--
           <div class="panel-formElements-item">
