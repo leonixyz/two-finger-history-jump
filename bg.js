@@ -6,15 +6,23 @@
   // defaults
   const defaultSettings = {
     threshold: 20,
-    timeout: 1000,
-    feedbackSize: 5,
-    feedbackColor: '#888888'
+    newTimeout: 250,
+    deadzone: 20
   }
 
   // get stored settings or default ones
   let settings = await browser.storage.local.get();
-  if (!settings || !settings.timeout || !settings.threshold) {
+  if (!settings) {
     settings = defaultSettings;
+  }
+  if (!settings.threshold) {
+    settings.threshold = defaultSettings.threshold;
+  }
+  if (!settings.newTimeout) {
+    settings.newTimeout = defaultSettings.newTimeout;
+  }
+  if (!settings.deadzone) {
+    settings.deadzone = defaultSettings.deadzone;
   }
 
   // listen to messages from content script / popup

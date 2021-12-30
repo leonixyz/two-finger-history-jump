@@ -104,13 +104,13 @@ input {
 }
 
 .info {
-  padding: 1rem;
+  padding: 0.4rem;
   background-color: var(--blue-40);
   color: var(--white-100);
 }
 
 .info .icon {
-  font-size: 1.5rem;
+  font-size: 1rem;
   float: left;
   margin: 0 0.5rem;
 }
@@ -118,7 +118,7 @@ input {
 .badge {
   background: var(--grey-70);
   color: var(--grey-20);
-  padding: 0.4rem;
+  padding: 0.2rem;
   border-radius: 1rem;
   font-size: 0.8rem;
 }

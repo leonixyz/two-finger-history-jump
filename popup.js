@@ -31,12 +31,13 @@
 
   // updates the UI given the current settings
   const updateUI = settings => {
-    document.querySelector('#timeout').value = settings.timeout;
-    document.querySelector('#timeout-badge').innerText = `${settings.timeout} ms`;
+    // Timeout is renamed because the old default is now unsuitable so it should not carry over
+    document.querySelector('#timeout').value = settings.newTimeout;
+    document.querySelector('#timeout-badge').innerText = `${settings.newTimeout} ms`;
     document.querySelector('#threshold').value = settings.threshold;
     document.querySelector('#threshold-badge').innerText = settings.threshold;
-    document.querySelector('#feedback-size').value = settings.feedbackSize;
-    document.querySelector('#feedback-size-badge').innerText = `${settings.feedbackSize} pixels`;
+    document.querySelector('#deadzone').value = settings.deadzone;
+    document.querySelector('#deadzone-badge').innerText = `${settings.deadzone} pixels`;
     // document.querySelector('#feedback-color').value = settings.feedbackColor;
     // document.querySelector('#feedback-color-badge').innerText = settings.feedbackColor;
   };
@@ -61,12 +62,12 @@
   });
 
   document.querySelector('#timeout').addEventListener('change', e => {
-    settings.timeout = parseInt(e.target.value);
+    settings.newTimeout = parseInt(e.target.value);
     handleSettingsUpdate();
   });
 
-  document.querySelector('#feedback-size').addEventListener('change', e => {
-    settings.feedbackSize = parseInt(e.target.value);
+  document.querySelector('#deadzone').addEventListener('change', e => {
+    settings.deadzone = parseInt(e.target.value);
     handleSettingsUpdate();
   });
 
