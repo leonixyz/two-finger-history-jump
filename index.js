@@ -22,39 +22,42 @@
 
   // Add styles to the document
   let style = document.createElement('STYLE');
+  // all: initial; makes sure that the page's styling doesn't mess with our styles
   style.innerHTML = `
   #history-jump-container {
-    position: fixed;
-    top: calc(50vh - 20px);
-    display: none;
+    all: initial !important;
+    position: fixed !important;
+    top: calc(50vh - 20px) !important;
+    display: none !important;
   }
   
   .history-jump-circle {
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    position: absolute;
-    top: 0;
+    all: initial !important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 20px !important;
+    position: absolute !important;
+    top: 0 !important;
   }
   
   #history-jump-arrow {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: 24px;
-    padding: 2px 10px;
-    box-sizing: border-box;
-    color: #46f;
-    font-weight: bold;
+    background: white !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+    font-size: 24px !important;
+    padding: 2px 10px !important;
+    box-sizing: border-box !important;
+    color: #46f !important;
+    font-weight: bold !important;
   }
   
   #history-jump-arrow.highlighted {
-    background: #46f;
-    color: white;
+    background: #46f !important;
+    color: white !important;
   }
   
   #history-jump-indicator {
-    background: #46f;
-    opacity: 0.5;
+    background: #46f !important;
+    opacity: 0.5 !important;
   }`
   document.head.appendChild(style);
 
@@ -102,17 +105,17 @@
     }
     if (value == 0) {
       // Hide the arrow if the value is 0
-      container.style.display = "none";
+      container.style.setProperty("display", "none", "important");
     } else {
-      container.style.display = "block";
+      container.style.setProperty("display", "block", "important");
       // Put the arroe on the left or right side
       if (left) {
-        container.style.right = "";
-        container.style.left = value - 40 + "px";
+        container.style.setProperty("right", "");
+        container.style.setProperty("left", value - 40 + "px", "important");
         arrow.innerHTML = "🡠";
       } else {
-        container.style.right = value - 40 + "px";
-        container.style.left = "";
+        container.style.setProperty("right", value - 40 + "px", "important");
+        container.style.setProperty("left", "");
         arrow.innerHTML = "🡢";
       }
       // Highlight the arrow if the value is above the threshold
@@ -124,7 +127,7 @@
         highlighted = false;
       }
       // Scale the indicator circle
-      indicator.style.transform = "scale(" + (Math.min(value / 100, 1) + 1) + ")";
+      indicator.style.setProperty("transform", "scale(" + (Math.min(value / 100, 1) + 1) + ")", "important");
     }
   }
   
