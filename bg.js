@@ -5,7 +5,7 @@
 (async () => {
   // defaults
   const defaultSettings = {
-    threshold: 20,
+    threshold: 30,
     newTimeout: 250,
     deadzone: 20
   }

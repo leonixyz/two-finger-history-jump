@@ -3,13 +3,13 @@
 This add-on allows you to jump back/forward in the browser's history by swiping
 horizontally with two fingers on your touchpad. Swiping to the left will take you
 back one page, while swiping to the right will do the opposite. It mimics the
-default behaviour on Mac Os. It needs the 'Access your data for all websites'
+default behaviour on Mac OS. It needs the 'Access your data for all websites'
 permission in order to access the browser's local storage and be able to save
 its settings persistently.
 
 You can configure how the browser reacts to your gestures with two settings:
 
-- **sensibility**: this indicates how sensible your browser is to
+- **Sensitivity**: this indicates how sensitle your browser is to
 horizontal swipes. If you set this value too low, you have to swipe more to 
 trigger a jump in history. If you set this value too high, you might jump back
 and forward unintentionally, or jump for more than one page. A suggested value
