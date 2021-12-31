@@ -167,7 +167,7 @@
     // If the viewport was moved, ignore the scroll
     if (!viewportMoved && scrollAmountThisFrame != 0) {
       holding = true;
-      animationSlideAmount += scrollAmountThisFrame * settings.threshold * 0.005;
+      animationSlideAmount += scrollAmountThisFrame * settings.threshold * 0.0075;
       console.log(animationSlideAmount);
       lastMoveTime = currentTime;
       // Update the animation
