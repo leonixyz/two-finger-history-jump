@@ -104,7 +104,7 @@ input {
 }
 
 .info {
-  padding: 0.4rem;
+  padding: 0.4rem 1.5rem;
   background-color: var(--blue-40);
   color: var(--white-100);
 }
