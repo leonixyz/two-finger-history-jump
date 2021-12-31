@@ -21,6 +21,10 @@ time before you can jump back or forward. 250 is the default and suggested value
 set this value too low you are more likely to trigger the animation by accident
 when scrolling.
 
+## Demo
+
+https://user-images.githubusercontent.com/13787163/147829836-77598b5d-54de-413e-8bb8-f49f492de807.mp4
+
 ## Components
 
 The code is organized in three parts:
