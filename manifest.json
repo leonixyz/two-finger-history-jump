@@ -45,12 +45,6 @@
 
   "background": {
     "scripts": ["bg.js"]
-  },
-
-  "browser_specific_settings": {
-    "gecko": {
-        "id": "two-finger-history-jump@heathmitchell27.com"
-    }
   }
 
 }
