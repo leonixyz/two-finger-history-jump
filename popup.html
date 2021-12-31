@@ -48,7 +48,7 @@
       <main>
         <div class="panel-section panel-section-formElements">
           <div class="panel-formElements-item">
-            <label for="threshold">Sensibility:</label>
+            <label for="threshold">Senitivity:</label>
             <span id="threshold-badge" class="badge">ERR</span>
           </div>
           <div class="panel-formElements-item">
@@ -81,9 +81,14 @@
       </main>
 
       <footer class="panel-section panel-section-footer">
-        <button class="panel-section-footer-button" id="reset-btn">Reset</button>
+        <button class="panel-section-footer-button" id="reset-btn">
+          <!-- Not sure why there's an offset but this fixes it -->
+          <span style="position: relative; bottom: 2px;">Reset</span>
+        </button>
         <div class="panel-section-footer-separator"></div>
-        <button class="panel-section-footer-button default" id="save-btn">Save</button>
+        <button class="panel-section-footer-button default" id="save-btn">
+          <span style="position: relative; bottom: 2px;">Save</span>
+        </button>
       </footer>
     </div>
     <script src="popup.js"></script>
