@@ -140,7 +140,9 @@
   
   let holding = false;
   
-  // The last time the user scrolled
+  // The last time the user scrolled (does not include overscroll)
+  let lastScrollTime = 0;
+  // The last time the user moved the arrow by scrolling
   let lastMoveTime = 0;
   
   function scrolled () {
@@ -149,12 +151,20 @@
     // Mark that the user scrolled - this means that touchpad scrolling should be
     // ignored, because the user is trying to scroll the page rather than using a gesture
     userScrolled = true;
+    lastScrollTime = Date.now();
   }
   
   visualViewport.addEventListener("scroll", scrolled);
   document.addEventListener("scroll", scrolled, true);
   
   window.addEventListener("wheel", (e) => {
+    const currentTime = Date.now();
+    if (currentTime - lastScrollTime < settings.newTimeout) {
+      // Count this as a scroll if the user scrolled recently
+      lastScrollTime = currentTime;
+      return;
+    }
+
     // Ignore zooming and vertical scrolling
     if (!e.ctrlKey && e.deltaY == 0) {
       scrollAmountThisFrame += e.deltaX;
@@ -169,7 +179,7 @@
   // Called every frame
   // TODO: Make sure it works with high refresh rates
   function step() {
-    let currentTime = +new Date();
+    let currentTime = Date.now();
     // If the viewport was moved, ignore the scroll
     if (!userScrolled && scrollAmountThisFrame != 0) {
       holding = true;
