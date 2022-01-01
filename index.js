@@ -134,7 +134,7 @@
     }
   }
   
-  let viewportMoved = false;
+  let userScrolled = false;
   // The amount of horizontal scroll in the current frame
   let scrollAmountThisFrame = 0;
   
@@ -143,13 +143,16 @@
   // The last time the user scrolled
   let lastMoveTime = 0;
   
-  visualViewport.addEventListener("scroll", () => {
+  function scrolled () {
     // If the user starts scrolling the content, allow the arrow to leave the screen
     holding = false;
-    // Mark that the viewport was moved - this means that scrolling is should be ignored,
-    // because the user is trying to scroll the page rather than using a gesture
-    viewportMoved = true;
-  })
+    // Mark that the user scrolled - this means that touchpad scrolling should be
+    // ignored, because the user is trying to scroll the page rather than using a gesture
+    userScrolled = true;
+  }
+  
+  visualViewport.addEventListener("scroll", scrolled);
+  document.addEventListener("scroll", scrolled, true);
   
   window.addEventListener("wheel", (e) => {
     // Ignore zooming and vertical scrolling
@@ -168,7 +171,7 @@
   function step() {
     let currentTime = +new Date();
     // If the viewport was moved, ignore the scroll
-    if (!viewportMoved && scrollAmountThisFrame != 0) {
+    if (!userScrolled && scrollAmountThisFrame != 0) {
       holding = true;
       animationSlideAmount += scrollAmountThisFrame * settings.threshold * 0.0075;
       lastMoveTime = currentTime;
@@ -200,7 +203,7 @@
       // Update the animation
       setValue(animationSlideAmount);
     }
-    viewportMoved = false;
+    userScrolled = false;
     scrollAmountThisFrame = 0;
     window.requestAnimationFrame(step);
   }
