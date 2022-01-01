@@ -29,6 +29,7 @@
     position: fixed !important;
     top: calc(50vh - 20px) !important;
     display: none !important;
+    z-index: 2147483647 !important;
   }
   
   .history-jump-circle {
@@ -111,11 +112,13 @@
       // Put the arroe on the left or right side
       if (left) {
         container.style.setProperty("right", "");
-        container.style.setProperty("left", value - 40 + "px", "important");
+        container.style.setProperty("left", "-40px", "important");
+        container.style.setProperty("transform", "translatex(" + value + "px)", "important");
         arrow.innerHTML = "🡠";
       } else {
-        container.style.setProperty("right", value - 40 + "px", "important");
+        container.style.setProperty("right", "-40px", "important");
         container.style.setProperty("left", "");
+        container.style.setProperty("transform", "translatex(-" + value + "px)", "important");
         arrow.innerHTML = "🡢";
       }
       // Highlight the arrow if the value is above the threshold
@@ -168,7 +171,6 @@
     if (!viewportMoved && scrollAmountThisFrame != 0) {
       holding = true;
       animationSlideAmount += scrollAmountThisFrame * settings.threshold * 0.0075;
-      console.log(animationSlideAmount);
       lastMoveTime = currentTime;
       // Update the animation
       setValue(animationSlideAmount);
