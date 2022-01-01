@@ -113,12 +113,12 @@
       if (left) {
         container.style.setProperty("right", "");
         container.style.setProperty("left", "-40px", "important");
-        container.style.setProperty("transform", "translatex(" + value + "px)", "important");
+        container.style.setProperty("transform", "translateX(" + Math.floor(value) + "px)", "important");
         arrow.innerHTML = "🡠";
       } else {
         container.style.setProperty("right", "-40px", "important");
         container.style.setProperty("left", "");
-        container.style.setProperty("transform", "translatex(-" + value + "px)", "important");
+        container.style.setProperty("transform", "translateX(-" + Math.floor(value) + "px)", "important");
         arrow.innerHTML = "🡢";
       }
       // Highlight the arrow if the value is above the threshold
