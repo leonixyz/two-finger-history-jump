@@ -143,20 +143,20 @@
   // The last time the user scrolled
   let lastMoveTime = 0;
   
-  window.visualViewport.onscroll = () => {
+  visualViewport.addEventListener("scroll", () => {
     // If the user starts scrolling the content, allow the arrow to leave the screen
     holding = false;
     // Mark that the viewport was moved - this means that scrolling is should be ignored,
     // because the user is trying to scroll the page rather than using a gesture
     viewportMoved = true;
-  }
+  })
   
-  window.onwheel = function (e) {
+  window.addEventListener("wheel", (e) => {
     // Ignore zooming and vertical scrolling
     if (!e.ctrlKey && e.deltaY == 0) {
       scrollAmountThisFrame += e.deltaX;
     }
-  }
+  })
   
   // The progress of the animation
   // Positive = navigating forward
